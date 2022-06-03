@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "dependencies": {
+    "commander": "^8.1.0",
+    "esprima": "^4.0.1",
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0"
+  },
+  "scripts": {
+    "eslint": "eslint src"
+  }
+}
