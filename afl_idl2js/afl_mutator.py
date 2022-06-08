@@ -1,13 +1,10 @@
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent.resolve()))
+import json
 
 from idl2js.js.mutator import mutate
 from idl2js.js.unparser import unparse
 from idl2js.js.utils import from_json
 
-from afl_idl2js.js_ast import code_to_ast
+from js_ast import code_to_ast
 
 
 def init(seed: int) -> None:
@@ -24,6 +21,6 @@ def fuzz(buf: bytearray, add_buf: bytearray, max_size: int) -> bytearray:
     if ast is None:
         return buf
 
-    mutated_ast = mutate(from_json(ast))
+    mutated_ast = mutate(from_json(json.loads(ast)))
 
     return bytearray(unparse(mutated_ast).encode())
